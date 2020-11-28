@@ -70,15 +70,11 @@ span.psw {
 .modal-content {
     background-color: #fefefe;
     border: 1px solid #888;
+    width: 425px;
 }
 @media (max-width: 576px) {
     .modal-content {
         width: 75%;
-    }
-}
-@media (min-width: 576px) {
-    .modal-content {
-        width: 425px;
     }
 }
     /* The Close Button (x) */
