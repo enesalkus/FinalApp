@@ -72,3 +72,4 @@ C:\Users\NS\GitHub\FinalApp\FinalApp\obj\Debug\netcoreapp3.1\FinalApp.dll
 C:\Users\NS\GitHub\FinalApp\FinalApp\obj\Debug\netcoreapp3.1\FinalApp.pdb
 C:\Users\NS\GitHub\FinalApp\FinalApp\obj\Debug\netcoreapp3.1\FinalApp.genruntimeconfig.cache
 C:\Users\NS\GitHub\FinalApp\FinalApp\obj\Debug\netcoreapp3.1\FinalApp.csproj.CopyComplete
+C:\Users\NS\GitHub\FinalApp\FinalApp\obj\Debug\netcoreapp3.1\Razor\Views\Home\UrunDetay.cshtml.g.cs

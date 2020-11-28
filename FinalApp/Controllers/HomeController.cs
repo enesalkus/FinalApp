@@ -12,6 +12,7 @@ namespace FinalApp.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+
         public static string userName = "Ziyaretçi";
         public static string[] kategoriList = { "Oturma Odası", "Yatak Odası", "Yemek Odası", "Genç",
             "Bebek", "Bahçe", "Home Office", "Aydınlatma", "Ev Dekor",
@@ -27,12 +28,12 @@ namespace FinalApp.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult UrunDetay()
         {
             return View();
         }
 
-        public IActionResult Login()
+        public IActionResult Privacy()
         {
             return View();
         }

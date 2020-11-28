@@ -50,14 +50,6 @@
         </form>
     </div>
 
-    <script>
-        var modal = document.getElementById('id01');
-        window.onclick = function (event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-    </script>
 
     <div id="user-title">
         <span style="float: left;">Hoş Geldin, <b>@FinalApp.Controllers.HomeController.userName</b>!</span>
@@ -71,10 +63,12 @@
                 </div>
             </div>
             <div id="title-right" style="margin-top:15px;float:right;">
-                <center><div class="giris-sepet" style="float: right;">
-                    <a href="" id="sepet" style="float: right;">SEPET</a>
-                    <a onclick="document.getElementById('id01').style.display='block'" style="cursor: pointer;" id="giris">GİRİŞ</a>
-                </div></center>
+                <center>
+                    <div class="giris-sepet" style="float: right;">
+                        <a href="" id="sepet" style="float: right;">SEPET</a>
+                        <a onclick="document.getElementById('id01').style.display='block'" style="cursor: pointer;" id="giris">GİRİŞ</a>
+                    </div>
+                </center>
                 <input type="text" id="ara" placeholder="Ürün arayın..">
             </div>
         </div>
@@ -89,6 +83,9 @@
                 <ul class="navbar-nav flex-grow-1">
                     <li class="nav-item" style="margin-right: 10px;">
                         <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Ana Sayfa</a>
+                    </li>
+                    <li class="nav-item" style="margin-right: 10px;">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="UrunDetay">Ürün Detay</a>
                     </li>
                     <li class="nav-item" style="margin-right: 10px;">
                         <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
@@ -109,6 +106,7 @@
             &copy; @DateTime.Now.Year  - FinalApp - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
