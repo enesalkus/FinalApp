@@ -1,0 +1,97 @@
+﻿@{
+    ViewData["Title"] = "Ana Sayfa";
+}
+
+<div class="slideshow-container">
+
+    <div class="bbb">
+        <img class="iii" src="https://i.hizliresim.com/g6ZeMC.png" style="width:100%">
+        <div class="text">Basit TV Ünitesi</div>
+    </div>
+
+    <div class="bbb">
+        <img class="iii" src="https://i.hizliresim.com/2M7dza.png" style="width:100%">
+        <div class="text">Basit Yemek Odası</div>
+    </div>
+
+    <div class="bbb">
+        <img class="iii" src="https://i.hizliresim.com/kd5vUN.png" style="width:100%">
+        <div class="text">Basit Yatak Odası</div>
+    </div>
+
+    <a class="zzz" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="ill" onclick="plusSlides(1)">&#10095;</a>
+</div>
+<br>
+
+<div style="text-align:center">
+    <span class="ccc" onclick="currentSlide(1)"></span>
+    <span class="ccc" onclick="currentSlide(2)"></span>
+    <span class="ccc" onclick="currentSlide(3)"></span>
+</div>
+
+
+<script>
+    var slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("bbb");
+        var dots = document.getElementsByClassName("ccc");
+        if (n > slides.length) { slideIndex = 1 }
+        if (n < 1) { slideIndex = slides.length }
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" aaa", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " aaa";
+    }
+</script>
+<br />
+<div class="text-center">
+    <h2 class="">Çok Satanlar</h2>
+</div>
+<table class="cok-satanlar">
+    <tr>
+        @for (int i = 0; i < 4; i++)
+        {
+            <td>
+                <div class="kutu">
+                    <img class="urun-resim" src="https://www.tepehome.com.tr/lavoro-calisma-masasi-kucuk-calisma-masasi-tepehome-20691-12-K.png" />
+                    <div class="baslik">
+                        <span><b>Mobilyam.net</b></span><br />
+                        <span>CL KOLTUK TAKIMI</span>
+                    </div>
+                    <div class="fiyat"><b>2.500₺</b></div>
+                </div>
+            </td>
+        }
+    </tr>
+    <tr>
+        @for (int i = 0; i < 4; i++)
+        {
+            <td>
+                <div class="kutu">
+                    <img class="urun-resim" src="https://www.tepehome.com.tr/lavoro-calisma-masasi-kucuk-calisma-masasi-tepehome-20691-12-K.png" />
+                    <div class="baslik">
+                        <span><b>EA Mobilya</b></span><br />
+                        <span>CL KOLTUK TAKIMI</span>
+                    </div>
+                    <div class="fiyat"><b>2.500₺</b></div>
+                </div>
+            </td>
+        }
+    </tr>
+</table>
