@@ -2,6 +2,18 @@
     ViewData["Title"] = "Product Page";
 }
 
+@model FinalApp.Models.Product
 
-<h1>@ViewData["Title"]</h1>
-<p>Use this page to detail your site's privacy policy.</p>
+<div class="urun">
+    <div class="urun-resim">
+        <img style="width: 100%;" src="@Model.Resim" />
+    </div>
+    <div class="urun-icerik">
+        <div class="urun-baslik">
+            <div class="icerik-yazi"><b>@Model.Kategori</b></div>
+            <div class="icerik-yazi">@Model.Urun</div>
+        </div>
+        <div class="urun-fiyat"><b>@Model.Fiyat</b></div>
+    </div>
+</div>
+<br style="clear:both;" />

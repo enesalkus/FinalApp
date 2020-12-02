@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="~/css/newlogin.css" />
     <link rel="stylesheet" type="text/css" href="~/css/deneme.css" />
     <link rel="stylesheet" type="text/css" href="~/css/title.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/product.css" />
     <style>
         ::-moz-selection {
             color: white;
@@ -19,9 +20,11 @@
             color: white;
             background: #212223;
         }
+
         ::-webkit-scrollbar {
             width: 8px;
         }
+
         ::-webkit-scrollbar-thumb {
             background: #555;
         }
@@ -91,7 +94,8 @@
                         <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                     </li>
                     <li class="nav-item" style="margin-right: 10px;">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Index">Index</a>
+                        @{ var p = new Dictionary<string, string> { { "Urun", "Paris Yatak Odası" } }; }
+                        <a class="nav-link text-dark" asp-all-route-data="p" asp-controller="Product" asp-action="Index">Index</a>
                     </li>
                     <li class="nav-item" style="margin-right: 10px;">
                         <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="ShowAll">Show All</a>

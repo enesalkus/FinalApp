@@ -33,7 +33,7 @@ namespace FinalApp.Controllers
                 string[] veri = item.Value.ToString().Split(';');
                 if (!kategoriler.Contains(veri[0]))
                     kategoriler.Add(veri[0]);
-                products.Add(new Product { Kategori = veri[0], Urun = item.Name, Fiyat = double.Parse(veri[1]), Resim = veri[2] });
+                products.Add(new Product { Kategori = veri[0], Urun = item.Name, Fiyat = string.Format("{0:C0}", double.Parse(veri[1])), Resim = veri[2] });
             }
             return View(products);
         }

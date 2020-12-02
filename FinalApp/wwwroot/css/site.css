@@ -2,28 +2,21 @@
 for details on configuring this project to bundle and minify static web assets. */
 
 @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
-div.containersss {
+div.cok-satanlar {
     float: left;
     width: 100%;
     height: auto;
     clear: both;
 }
 
-div.items-1 {
+div.urunler {
     float: left;
-}
-
-div.items-2, div.items-3, div.items-4 {
-    float: left;
-}
-
-div.items-1, div.items-2, div.items-3, div.items-4 {
     width: 23%;
     height: auto;
     margin: 1%
 }
 @media (max-width: 768px) {
-    div.items-1, div.items-2, div.items-3, div.items-4 {
+    div.urunler {
         width: 48%;
     }
 }

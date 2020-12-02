@@ -66,24 +66,21 @@
 
 @model List<FinalApp.Models.Product>
 
-<div class="containersss">
-    @{
-        int i = 0;
-        foreach (var item in Model)
-        {
-            i++;
-            if (i > 4) i = 1;
-            <div class="items-1">
-                <div class="kutu">
-                    <img class="urun-resim" src="@item.Resim" />
-                    <div class="baslik">
+<div class="cok-satanlar">
+    @foreach (var item in Model)
+    {
+        <div class="urunler">
+            <div class="kutu">
+                <img class="urun-resim" src="@item.Resim" />
+                <div class="baslik">
+                    <a href="Product?Urun=@item.Urun">
                         <div class="icerik-yazi"><b>@item.Kategori</b></div>
                         <div class="icerik-yazi">@item.Urun</div>
-                    </div>
-                    <div class="fiyat"><b>@item.Fiyat₺</b></div>
+                    </a>
                 </div>
+                <div class="fiyat"><b>@item.Fiyat</b></div>
             </div>
-        }
+        </div>
     }
 </div>
 <br style="clear:both;" />
