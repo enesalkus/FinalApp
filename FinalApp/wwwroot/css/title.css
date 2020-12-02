@@ -4,7 +4,7 @@
     width: 100%;
     height: auto;
     cursor: pointer;
-    border-radius: 10px 10px 0 0;
+    /*border-radius: 10px 10px 0 0;*/
 }
 
 table, th, td {
@@ -23,9 +23,14 @@ table, th, td {
     box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
     font-family: 'Century Gothic';
     font-size: 14px;
-    border-radius: 10px;
+    /*border-radius: 10px;*/
 }
 
+.icerik-yazi {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
 .baslik {
     text-decoration: none;
     text-align: left;
@@ -38,6 +43,9 @@ table, th, td {
     }
 
 .fiyat {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
     text-align: left;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 13px;

@@ -29,20 +29,20 @@
 </head>
 <body>
     <div align="center" id="id01" class="modal">
-        <form class="modal-content animate" action="" method="GET">
+        <form class="modal-content animate" asp-controller="Product" asp-action="ShowAll" method="GET">
             <div align="left">
                 <div class="imgcontainer">
                     <img src="https://i.hizliresim.com/kKVVgV.png" alt="Avatar" class="avatar">
                     <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Kapat">&times;</span>
                 </div>
                 <div class="login-container">
-                    <input type="text" placeholder="Kullanıcı Adı" name="uname" required>
+                    <input type="text" placeholder="Kullanıcı Adı" name="Kategori" required>
 
-                    <input type="password" placeholder="Şifre" name="psw" required>
+                    <input type="password" placeholder="Şifre" name="" required>
 
                     <button type="submit">Giriş Yap</button>
                     <label>
-                        <input type="checkbox" checked="checked" name="remember"> Beni hatırla
+                        <input type="checkbox" checked="checked" name=""> Beni hatırla
                     </label>
                     <div align="right"><a href="#">Şifreni mi unuttun?</a></div>
                 </div>
@@ -90,6 +90,20 @@
                     <li class="nav-item" style="margin-right: 10px;">
                         <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                     </li>
+                    <li class="nav-item" style="margin-right: 10px;">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Index">Index</a>
+                    </li>
+                    <li class="nav-item" style="margin-right: 10px;">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="ShowAll">Show All</a>
+                    </li>
+                    @using FinalApp.Controllers;
+                    @for (int i = 0; i < HomeController.kategoriler.Count; i++)
+                    {
+                    <li class="nav-item" style="margin-right: 10px;">
+                        @{ var parms = new Dictionary<string, string> { { "Kategori", @HomeController.kategoriler[i].ToString() } }; }
+                        <a class="nav-link text-dark" asp-all-route-data="parms" asp-controller="Product" asp-action="ShowAll">@HomeController.kategoriler[i]</a>
+                    </li>
+                    }
                 </ul>
             </div>
         </div>

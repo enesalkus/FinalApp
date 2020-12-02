@@ -61,37 +61,29 @@
 </script>
 <br />
 <div class="text-center">
-    <h2 class="">Çok Satanlar</h2>
+    <h2 style="font-family: 'Rubik', sans-serif;"><b>Çok</b> Satanlar</h2>
 </div>
-<table class="cok-satanlar">
-    <tr>
-        @for (int i = 0; i < 4; i++)
+
+@model List<FinalApp.Models.Product>
+
+<div class="containersss">
+    @{
+        int i = 0;
+        foreach (var item in Model)
         {
-            <td>
+            i++;
+            if (i > 4) i = 1;
+            <div class="items-1">
                 <div class="kutu">
-                    <img class="urun-resim" src="https://www.tepehome.com.tr/lavoro-calisma-masasi-kucuk-calisma-masasi-tepehome-20691-12-K.png" />
+                    <img class="urun-resim" src="@item.Resim" />
                     <div class="baslik">
-                        <span><b>Mobilyam.net</b></span><br />
-                        <span>CL KOLTUK TAKIMI</span>
+                        <div class="icerik-yazi"><b>@item.Kategori</b></div>
+                        <div class="icerik-yazi">@item.Urun</div>
                     </div>
-                    <div class="fiyat"><b>2.500₺</b></div>
+                    <div class="fiyat"><b>@item.Fiyat₺</b></div>
                 </div>
-            </td>
+            </div>
         }
-    </tr>
-    <tr>
-        @for (int i = 0; i < 4; i++)
-        {
-            <td>
-                <div class="kutu">
-                    <img class="urun-resim" src="https://www.tepehome.com.tr/lavoro-calisma-masasi-kucuk-calisma-masasi-tepehome-20691-12-K.png" />
-                    <div class="baslik">
-                        <span><b>EA Mobilya</b></span><br />
-                        <span>CL KOLTUK TAKIMI</span>
-                    </div>
-                    <div class="fiyat"><b>2.500₺</b></div>
-                </div>
-            </td>
-        }
-    </tr>
-</table>
+    }
+</div>
+<br style="clear:both;" />
