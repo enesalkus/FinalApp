@@ -18,11 +18,11 @@ namespace FinalApp.Controllers
         public IActionResult Index()
         {
             Product prd = new Product();
-            prd.Urun = Request.Query["Urun"];
+            prd.Urun = Request.Query["Urun"].ToString().ToUpper();
             foreach (var item in bag.HashGetAll("Urunler"))
             {
                 string[] veri = item.Value.ToString().Split(';');
-                if (item.Name == prd.Urun)
+                if (item.Name == Request.Query["Urun"])
                 {
                     prd.Kategori = veri[0];
                     prd.Fiyat = string.Format("{0:C0}", double.Parse(veri[1]));
@@ -30,6 +30,10 @@ namespace FinalApp.Controllers
                 }
             }
             return View(prd);
+        }
+        public IActionResult Index2()
+        {
+            return View();
         }
 
         public IActionResult ShowAll()
