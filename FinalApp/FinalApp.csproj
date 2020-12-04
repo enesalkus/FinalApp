@@ -5,6 +5,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="wwwroot\Images\1.jpg" />
+    <None Remove="wwwroot\Images\Bursa Yatak Odası\2.jpg" />
+    <None Remove="wwwroot\Images\Bursa Yatak Odası\3.jpg" />
+    <None Remove="wwwroot\Images\Bursa Yatak Odası\4.jpg" />
+    <None Remove="wwwroot\Images\Bursa Yatak Odası\5.jpg" />
+    <None Remove="wwwroot\Images\Bursa Yatak Odası\6.jpg" />
+    <None Remove="wwwroot\Images\Bursa Yatak Odası\7.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="StackExchange.Redis" Version="2.2.4" />
   </ItemGroup>
 

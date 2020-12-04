@@ -1,12 +1,11 @@
 ﻿
-.urun-resim {
-    display: block;
-    width: 100%;
-    height: auto;
-    cursor: pointer;
-    /*border-radius: 10px 10px 0 0;*/
-}
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
 
+.resim {
+    height: 250px;
+    display: flex;
+    align-items: center;
+}
 table, th, td {
     padding-top: 1%;
     padding-left: 1%;
@@ -23,7 +22,18 @@ table, th, td {
     box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
     font-family: 'Century Gothic';
     font-size: 14px;
+    font-family: 'Rubik', sans-serif;
+    padding-bottom: 5px;
     /*border-radius: 10px;*/
+}
+
+.indirim {
+    background-color: #FF3333;
+    color: white;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    text-align: center;
 }
 
 .icerik-yazi {
@@ -48,13 +58,21 @@ table, th, td {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    text-align: left;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 13px;
+    font-family: 'Rubik', sans-serif;
+    font-size: 14px;
     color: red;
     margin: 10px;
 }
 
+.eski-fiyat {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 14px;
+    text-decoration: line-through;
+    color: gray;
+    font-family: 'Rubik', sans-serif;
+}
 
 .bbb {
     display: none

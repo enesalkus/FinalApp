@@ -71,14 +71,28 @@
     {
         <div class="urunler">
             <div class="kutu">
-                <img class="urun-resim" src="@item.Resim" />
+                @if (item.Indirim != "0")
+                {
+                    <div class="indirim">%@item.Indirim indirim</div>
+                }
+                <div class="resim">
+                    <img style="width: 100%; max-height: 100%;" src="@Url.Content(item.Resim)" />
+                </div>
                 <div class="baslik">
                     <a href="Product?Urun=@item.Urun">
                         <div class="icerik-yazi"><b>@item.Kategori</b></div>
                         <div class="icerik-yazi">@item.Urun</div>
                     </a>
                 </div>
-                <div class="fiyat"><b>@item.Fiyat</b></div>
+                @if (item.Indirim != "0")
+                {
+                    <span class="fiyat"><b>@item.IndirimliFiyat</b></span>
+                    <span class="eski-fiyat"><b>@item.Fiyat</b></span>
+                }
+                else
+                {
+                    <span class="fiyat"><b>@item.Fiyat</b></span>
+                }
             </div>
         </div>
     }

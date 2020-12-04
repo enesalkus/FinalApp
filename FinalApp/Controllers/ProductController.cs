@@ -26,7 +26,12 @@ namespace FinalApp.Controllers
                 {
                     prd.Kategori = veri[0];
                     prd.Fiyat = string.Format("{0:C0}", double.Parse(veri[1]));
-                    prd.Resim = veri[2];
+                    prd.Indirim = veri[2];
+                    double indirim = double.Parse(veri[1]) - ((double.Parse(veri[1]) * double.Parse(veri[2])) / 100);
+                    prd.IndirimliFiyat = string.Format("{0:C0}", indirim);
+                    string urunresim = null;
+                    urunresim = "~/Images/" + item.Name + "/1.jpg";
+                    prd.Resim = urunresim;
                 }
             }
             return View(prd);
@@ -47,12 +52,12 @@ namespace FinalApp.Controllers
                 if (test != null)
                 {
                     if (test == veri[0])
-                        products.Add(new Product { Kategori = veri[0], Urun = item.Name, Fiyat = string.Format("{0:C0}", double.Parse(veri[1])), Resim = veri[2] });
+                        products.Add(new Product { Kategori = veri[0], Urun = item.Name, Fiyat = string.Format("{0:C0}", double.Parse(veri[1])), Resim = veri[3] });
                 }
                 else
                 {
                     ViewData["Heading"] = "Tüm Ürünler";
-                    products.Add(new Product { Kategori = veri[0], Urun = item.Name, Fiyat = string.Format("{0:C0}", double.Parse(veri[1])), Resim = veri[2] });
+                    products.Add(new Product { Kategori = veri[0], Urun = item.Name, Fiyat = string.Format("{0:C0}", double.Parse(veri[1])), Resim = veri[3] });
                 }
             }
             return View(products);

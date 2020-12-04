@@ -8,6 +8,8 @@ using Microsoft.Extensions.Logging;
 using FinalApp.Models;
 using StackExchange.Redis;
 using System.Collections;
+using Microsoft.Extensions.Hosting.Internal;
+using System.IO;
 
 namespace FinalApp.Controllers
 {
@@ -24,6 +26,7 @@ namespace FinalApp.Controllers
         static readonly ConnectionMultiplexer muxer = ConnectionMultiplexer.Connect("127.0.0.1:6379,password=");
         IDatabase bag = muxer.GetDatabase(1);
         public static ArrayList kategoriler = new ArrayList();
+
         public IActionResult Index()
         {
 
@@ -33,7 +36,10 @@ namespace FinalApp.Controllers
                 string[] veri = item.Value.ToString().Split(';');
                 if (!kategoriler.Contains(veri[0]))
                     kategoriler.Add(veri[0]);
-                products.Add(new Product { Kategori = veri[0], Urun = item.Name, Fiyat = string.Format("{0:C0}", double.Parse(veri[1])), Resim = veri[2] });
+                double indirim = double.Parse(veri[1]) - ((double.Parse(veri[1]) * double.Parse(veri[2])) / 100);
+                string urunresim = null;
+                urunresim = "~/Images/" + item.Name + "/1.jpg";
+                products.Add(new Product { Kategori = veri[0], Urun = item.Name, Fiyat = string.Format("{0:C0}", double.Parse(veri[1])), Indirim = veri[2], IndirimliFiyat = string.Format("{0:C0}", indirim), Resim = urunresim });
             }
             return View(products);
         }
