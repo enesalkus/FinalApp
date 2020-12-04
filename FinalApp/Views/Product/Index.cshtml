@@ -46,7 +46,7 @@
                         <span class="urun-fiyat"><b>@Model.Fiyat</b></span>
                     }
                 }
-                <button class="button"><b>SEPETE EKLE</b></button>
+            <a href="Home/Sepet"><button class="button" onclick="setCookie('adi', '@Model.Urun');"><b>SEPETE EKLE</b></button></a>
             </center>
         </div>
     </div>
@@ -54,23 +54,44 @@
 <br style="clear:both;" />
 
 <script>
-function currentDiv(n) {
-  showDivs(slideIndex = n);
-}
+    function currentDiv(n) {
+        showDivs(slideIndex = n);
+    }
 
-function showDivs(n) {
-  var i;
-  var x = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("demo");
-  if (n > x.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = x.length}
-  for (i = 0; i < x.length; i++) {
-    x[i].style.display = "none";
-  }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" w3-opacity-off", "");
-  }
-  x[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " w3-opacity-off";
-}
+    function tikla() {
+        alert(getCookie("adi"));
+    }
+    function setCookie(cname, cvalue) {
+        document.cookie = cname + "=" + cvalue;
+    }
+    function getCookie(cname) {
+        var name = cname + "=";
+        var decodedCookie = decodeURIComponent(document.cookie);
+        var ca = decodedCookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    }
+    function showDivs(n) {
+      var i;
+      var x = document.getElementsByClassName("mySlides");
+      var dots = document.getElementsByClassName("demo");
+      if (n > x.length) {slideIndex = 1}
+      if (n < 1) {slideIndex = x.length}
+      for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
+      }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" w3-opacity-off", "");
+      }
+      x[slideIndex-1].style.display = "block";
+      dots[slideIndex-1].className += " w3-opacity-off";
+    }
 </script>

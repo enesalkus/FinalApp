@@ -19,6 +19,7 @@ namespace FinalApp.Controllers
         {
             Product prd = new Product();
             prd.Urun = Request.Query["Urun"].ToString().ToUpper();
+            bool varmi = false;
             foreach (var item in bag.HashGetAll("Urunler"))
             {
                 string[] veri = item.Value.ToString().Split(';');
@@ -32,11 +33,16 @@ namespace FinalApp.Controllers
                     string urunresim = null;
                     urunresim = "~/Images/" + item.Name + "/1.jpg";
                     prd.Resim = urunresim;
+                    varmi = true;
                 }
             }
-            return View(prd);
+            if (prd.Urun != "" && varmi == true) return View(prd);
+            else return View("Index1");
         }
-        public IActionResult Index2()
+
+
+
+        public IActionResult Index1()
         {
             return View();
         }

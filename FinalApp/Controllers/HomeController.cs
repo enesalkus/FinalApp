@@ -44,6 +44,10 @@ namespace FinalApp.Controllers
             return View(products);
         }
 
+        public IActionResult Sepet()
+        {
+            return View();
+        }
         public IActionResult UrunDetay()
         {
             return View();
