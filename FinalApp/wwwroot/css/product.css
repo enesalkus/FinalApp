@@ -37,7 +37,7 @@ div.urun-kutu {
 span.urun-fiyat {
     font-size: 25px;
     margin-left: 10px;
-    color: #FF3333;
+    color: #ff1f00;
     font-family: 'Rubik', sans-serif;
 }
 span.urun-eskifiyat {
@@ -60,7 +60,7 @@ div.urun-baslik {
 .button {
     font-family: 'Rubik', sans-serif;
     font-size: 20px;
-    background-color: #FF3333;
+    background-color: #ff1f00;
     border: none;
     color: white;
     text-align: center;
