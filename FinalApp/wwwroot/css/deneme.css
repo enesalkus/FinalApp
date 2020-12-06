@@ -1,0 +1,38 @@
+﻿
+#title-right, #title-left {
+    width: 50%;
+}
+
+.ortala img {
+    width: 100%;
+}
+#title-info {
+    position: relative;
+}
+
+#title-left {
+    position: absolute;
+    bottom: 0;
+}
+@media (max-width: 576px) {
+    #title-info{
+        position: static;
+    }
+    #title-left {
+        position: static;
+        bottom: auto;
+        width: 100%;
+    }
+    .ortala img {
+        margin-top: 15px;
+        width: 65%;
+    }
+    #title-right {
+        float: none;
+        width: 100%;
+    }
+    .giris-sepet, .ortala {
+        float: none;
+        width: 100%;
+    }
+}

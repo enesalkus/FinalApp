@@ -1,0 +1,97 @@
+﻿@{
+    ViewData["Title"] = "Product Page";
+}
+
+@model FinalApp.Models.Product
+
+<div class="urun">
+    <div class="urun-resimler">
+        <div class="urun-resim">
+            <img class="mySlides" style="max-width: 100%;max-height: 100%;" src="@Url.Content(Model.Resim)" />
+            <img class="mySlides" style="max-width: 100%;max-height: 100%;display: none;" src="@Url.Content("~/Images/Bursa Yatak Odası/2.jpg")" />
+            <img class="mySlides" style="max-width: 100%;max-height: 100%;display: none;" src="@Url.Content("~/Images/Bursa Yatak Odası/3.jpg")" />
+        </div>
+
+        <table>
+            <tr>
+                <td>
+                    <img class="" src="@Url.Content(Model.Resim)" style="width:100%;cursor:pointer" onclick="currentDiv(1)">
+                </td>
+                <td>
+                    <img class="" src="@Url.Content("~/Images/Bursa Yatak Odası/2.jpg")" style="width:100%;cursor:pointer" onclick="currentDiv(2)">
+                </td>
+                <td>
+                    <img class="" src="@Url.Content("~/Images/Bursa Yatak Odası/3.jpg")" style="width:100%;cursor:pointer" onclick="currentDiv(3)">
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="urun-icerik">
+        <div class="urun-kutu">
+            <center>
+                <div class="urun-baslik">
+                    <div class="icerik-yazi"><b>@Model.Kategori</b></div>
+                    <div class="urun-isim icerik-yazi">@Model.Urun</div>
+                </div>
+                <br />
+                @{
+                    if (Model.Indirim != "0")
+                    {
+                        <div class="urun-indirim"><b>%@Model.Indirim indirim</b></div>
+                        <span class="urun-eskifiyat"><b>@Model.Fiyat</b></span>
+                        <span class="urun-fiyat"><b>@Model.IndirimliFiyat</b></span>
+                    }
+                    else
+                    {
+                        <span class="urun-fiyat"><b>@Model.Fiyat</b></span>
+                    }
+                }
+            <a href="Home/Sepet"><button class="button" onclick="setCookie('adi', '@Model.Urun');"><b>SEPETE EKLE</b></button></a>
+            </center>
+        </div>
+    </div>
+</div>
+<br style="clear:both;" />
+
+<script>
+    function currentDiv(n) {
+        showDivs(slideIndex = n);
+    }
+
+    function tikla() {
+        alert(getCookie("adi"));
+    }
+    function setCookie(cname, cvalue) {
+        document.cookie = cname + "=" + cvalue;
+    }
+    function getCookie(cname) {
+        var name = cname + "=";
+        var decodedCookie = decodeURIComponent(document.cookie);
+        var ca = decodedCookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    }
+    function showDivs(n) {
+      var i;
+      var x = document.getElementsByClassName("mySlides");
+      var dots = document.getElementsByClassName("demo");
+      if (n > x.length) {slideIndex = 1}
+      if (n < 1) {slideIndex = x.length}
+      for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
+      }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" w3-opacity-off", "");
+      }
+      x[slideIndex-1].style.display = "block";
+      dots[slideIndex-1].className += " w3-opacity-off";
+    }
+</script>

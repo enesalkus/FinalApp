@@ -1,0 +1,133 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - FinalApp</title>
+    <link rel="stylesheet" type="text/css" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/site.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/newlogin.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/deneme.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/title.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/product.css" />
+    <style>
+        ::-moz-selection {
+            color: white;
+            background: #212223;
+        }
+
+        ::selection {
+            color: white;
+            background: #212223;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #555;
+        }
+    </style>
+</head>
+<body>
+    <div align="center" id="id01" class="modal">
+        <form class="modal-content animate" asp-controller="Product" asp-action="ShowAll" method="GET">
+            <div align="left">
+                <div class="imgcontainer">
+                    <img src="https://i.hizliresim.com/kKVVgV.png" alt="Avatar" class="avatar">
+                    <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Kapat">&times;</span>
+                </div>
+                <div class="login-container">
+                    <input type="text" placeholder="Kullanıcı Adı" name="Kategori" required>
+
+                    <input type="password" placeholder="Şifre" name="" required>
+
+                    <button type="submit">Giriş Yap</button>
+                    <label>
+                        <input type="checkbox" checked="checked" name=""> Beni hatırla
+                    </label>
+                    <div align="right"><a href="#">Şifreni mi unuttun?</a></div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+    <div id="user-title">
+        <span style="float: left;">Hoş Geldin, <b>@FinalApp.Controllers.HomeController.userName</b>!</span>
+        <span style="float: right;"><b onclick="document.getElementById('id01').style.display='block'" style="cursor:pointer;">Giriş Yap</b> veya <b>Kayıt Ol</b></span>
+    </div>
+    <div class="container">
+        <div id="title-info">
+            <div id="title-left" style="float:left;">
+                <div class="ortala" style="float:left;">
+                    <center><img src="https://i.hizliresim.com/kKVVgV.png" /></center>
+                </div>
+            </div>
+            <div id="title-right" style="margin-top:15px;float:right;">
+                <center>
+                    <div class="giris-sepet" style="float: right;">
+                        <a href="" id="sepet" style="float: right;">SEPET</a>
+                        <a onclick="document.getElementById('id01').style.display='block'" style="cursor: pointer;" id="giris">GİRİŞ</a>
+                    </div>
+                </center>
+                <input type="text" id="ara" placeholder="Ürün arayın..">
+            </div>
+        </div>
+    </div>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item" style="margin-right: 10px;">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Ana Sayfa</a>
+                    </li>
+                    <li class="nav-item" style="margin-right: 10px;">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="UrunDetay">Ürün Detay</a>
+                    </li>
+                    <li class="nav-item" style="margin-right: 10px;">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                    </li>
+                    <li class="nav-item" style="margin-right: 10px;">
+                        @{ var p = new Dictionary<string, string> { { "Urun", "Paris Yatak Odası" } }; }
+                        <a class="nav-link text-dark" asp-all-route-data="p" asp-controller="Product" asp-action="Index">Index</a>
+                    </li>
+                    <li class="nav-item" style="margin-right: 10px;">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="ShowAll">Show All</a>
+                    </li>
+                    @using FinalApp.Controllers;
+                    @for (int i = 0; i < HomeController.kategoriler.Count; i++)
+                    {
+                    <li class="nav-item" style="margin-right: 10px;">
+                        @{ var parms = new Dictionary<string, string> { { "Kategori", @HomeController.kategoriler[i].ToString() } }; }
+                        <a class="nav-link text-dark" asp-all-route-data="parms" asp-controller="Product" asp-action="ShowAll">@HomeController.kategoriler[i]</a>
+                    </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; @DateTime.Now.Year  - FinalApp - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

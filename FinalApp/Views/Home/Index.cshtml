@@ -1,0 +1,100 @@
+﻿@{
+    ViewData["Title"] = "Page";
+}
+
+<div class="slideshow-container">
+
+    <div class="bbb">
+        <img class="iii" src="https://i.hizliresim.com/g6ZeMC.png" style="width:100%">
+        <div class="text">Basit TV Ünitesi</div>
+    </div>
+
+    <div class="bbb">
+        <img class="iii" src="https://i.hizliresim.com/2M7dza.png" style="width:100%">
+        <div class="text">Basit Yemek Odası</div>
+    </div>
+
+    <div class="bbb">
+        <img class="iii" src="https://i.hizliresim.com/kd5vUN.png" style="width:100%">
+        <div class="text">Basit Yatak Odası</div>
+    </div>
+
+    <a class="zzz" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="ill" onclick="plusSlides(1)">&#10095;</a>
+</div>
+<br>
+
+<div style="text-align:center">
+    <span class="ccc" onclick="currentSlide(1)"></span>
+    <span class="ccc" onclick="currentSlide(2)"></span>
+    <span class="ccc" onclick="currentSlide(3)"></span>
+</div>
+
+
+<script>
+    var slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("bbb");
+        var dots = document.getElementsByClassName("ccc");
+        if (n > slides.length) { slideIndex = 1 }
+        if (n < 1) { slideIndex = slides.length }
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" aaa", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " aaa";
+    }
+</script>
+<br />
+<div class="text-center">
+    <h2 style="font-family: 'Rubik', sans-serif;"><b>Çok</b> Satanlar</h2>
+</div>
+
+@model List<FinalApp.Models.Product>
+
+<div class="cok-satanlar">
+    @foreach (var item in Model)
+    {
+        <div class="urunler">
+            <div class="kutu">
+                @if (item.Indirim != "0")
+                {
+                    <div class="indirim">%@item.Indirim indirim</div>
+                }
+                <div class="resim">
+                    <img style="width: 100%; max-height: 100%;" src="@Url.Content(item.Resim)" />
+                </div>
+                <div class="baslik">
+                    <a href="Product?Urun=@item.Urun">
+                        <div class="icerik-yazi"><b>@item.Kategori</b></div>
+                        <div class="icerik-yazi">@item.Urun</div>
+                    </a>
+                </div>
+                @if (item.Indirim != "0")
+                {
+                    <span class="fiyat"><b>@item.IndirimliFiyat</b></span>
+                    <span class="eski-fiyat"><b>@item.Fiyat</b></span>
+                }
+                else
+                {
+                    <span class="fiyat"><b>@item.Fiyat</b></span>
+                }
+            </div>
+        </div>
+    }
+</div>
+<br style="clear:both;" />

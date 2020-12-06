@@ -1,0 +1,24 @@
+﻿@{
+    ViewData["Title"] = "Product Page";
+}
+@model List<FinalApp.Models.Product>
+@using FinalApp.Controllers; 
+
+<h1>@ViewData["Heading"]</h1>
+<table align="center" border="1" width="50%">
+    <tr>
+        <td>Resim</td>
+        <td>Kategori</td>
+        <td>Ürün</td>
+        <td>Fiyat</td>
+    </tr>
+    @foreach (var p in Model)
+    {
+        <tr>
+            <td><img width="100" height="100" src="@p.Resim" /></td>
+            <td>@p.Kategori</td>
+            <td>@p.Urun</td>
+            <td>@p.Fiyat₺</td>
+        </tr>
+    }
+</table>
